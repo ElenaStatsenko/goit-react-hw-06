@@ -1,25 +1,41 @@
-import { createSlice } from "@reduxjs/toolkit";
+import { createSlice, nanoid } from "@reduxjs/toolkit";
 
 const contactsSlice = createSlice({
   // Ім'я слайсу
   name: "contacts",
   // Початковий стан редюсера слайсу
-  contacts: {
+  initialState: {
     items: [],
   },
   // Об'єкт редюсерів
   reducers: {
-    addContact(state, action) {
-        state.push(action.payload);
+    addContact: {
+      reducer(state, action) {
+        state.items.push(action.payload);
+      },
+      prepare(name, number) {
+        return {
+          payload: {
+            id: nanoid(),
+            name,
+            number,
+          },
+        };
+      },
     },
-    deleteContatc(state, action) {
-        const index = state.findIndex(task => task.id === action.payload);
-    },
-  },
-});
 
-// Генератори екшенів
-const { addContact, deleteContatc } = contactsSlice.actions;
+    deleteContact(state, action) {
+      // 1. Найти индекс контакта, который нужно удалить
+      const index = state.items.findIndex((contact) => contact.id === action.payload);
+      
+      // 2. Проверить, был ли найден такой контакт
+      if (index !== -1) {
+        // 3. Если найден, удалить его из массива
+        state.items.splice(index, 1);
+      }
+    }}});
+// Генераторы экшенов
+export const { addContact, deleteContact } = contactsSlice.actions;
 
-// Редюсер слайсу
-const contactsReducer = contactsSlice.reducer;
+// Редюсер слайса
+export const contactsReducer = contactsSlice.reducer;
