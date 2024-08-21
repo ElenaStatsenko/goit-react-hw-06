@@ -39,3 +39,5 @@ export const { addContact, deleteContact } = contactsSlice.actions;
 
 // Редюсер слайса
 export const contactsReducer = contactsSlice.reducer;
+// функция-селектор
+export const getContacts = (state) => state.contacts;
