@@ -1,4 +1,4 @@
-import { createSlice, nanoid } from "@reduxjs/toolkit";
+import { createSlice, } from "@reduxjs/toolkit";
 
 const contactsSlice = createSlice({
   // Ім'я слайсу
@@ -9,19 +9,8 @@ const contactsSlice = createSlice({
   },
   // Об'єкт редюсерів
   reducers: {
-    addContact: {
-      reducer(state, action) {
-        state.items.push(action.payload);
-      },
-      prepare(name, number) {
-        return {
-          payload: {
-            id: nanoid(),
-            name,
-            number,
-          },
-        };
-      },
+    addContact(state, action) {state.items.push(action.payload)}
+    
     },
 
     deleteContact(state, action) {
@@ -33,7 +22,7 @@ const contactsSlice = createSlice({
         // 3. Если найден, удалить его из массива
         state.items.splice(index, 1);
       }
-    }}});
+    }});
 // Генераторы экшенов
 export const { addContact, deleteContact } = contactsSlice.actions;
 
