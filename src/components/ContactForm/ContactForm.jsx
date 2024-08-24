@@ -14,11 +14,11 @@ export default function ContactForm() {
       ...evt,
       id: key,
     };
-    console.log(object)
+    
     //  onAdd({...values, id:key}
     dispatch(addContact(object));
     // addContact(evt);
-    // console.log(dispatch)
+    
   };
   const ContactFormSchema = Yup.object().shape({
     name: Yup.string()

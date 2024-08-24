@@ -6,19 +6,18 @@ import { deleteContact } from "../../redax/contactsSlice";
 
 export default function ContactList() {
   const contacts = useSelector(getContacts);
-
-
-  
+console.log(contacts)
   const dispatch = useDispatch();
-  const handleDelete = () => dispatch(deleteContact(contacts.items.id));
-  return (
+  
+
+
     <div>
       <ul>
         {contacts.items.map((contact) => (
           <li key={contact.id}>
             <Contact name={contact.name} number={contact.number} />
 
-            <button onClick={handleDelete}> Delete</button>
+            <button onClick={() => dispatch(deleteContact(contact.id))}> Delete</button>
           </li>
         ))}
       </ul>
