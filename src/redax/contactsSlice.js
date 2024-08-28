@@ -29,4 +29,11 @@ export const contactsReducer = contactsSlice.reducer;
 // функция-селектор
 export const getContacts = (state) => state.contacts;
 
+export const selectFilteredContacts = (state) => {
+  const filter = state.filters.filter.toLowerCase();
+  return state.contacts.items.filter(contact =>
+    contact.name.toLowerCase().includes(filter)
+  );
+};
+
 
