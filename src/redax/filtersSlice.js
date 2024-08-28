@@ -19,6 +19,9 @@ const filtersSlice = createSlice({
 export const { setStatusFilter } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
 
+// const searchContact = contacts.filter((contact) =>
+// contact.name.toLowerCase().includes(filter.toLowerCase())
+);
 // export const selectFilteredContacts = createSelector(
 //   [selectContacts, selectFilter],
 //   (contacts, filter) => {
