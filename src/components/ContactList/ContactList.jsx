@@ -3,13 +3,14 @@ import { useDispatch } from "react-redux";
 import Contact from "../Contact/Contact";
 import { getContacts } from "../../redax/contactsSlice";
 import { deleteContact } from "../../redax/contactsSlice";
+import { selectFilteredContacts } from "../../redax/filtersSlice";
 
 export default function ContactList() {
   const contacts = useSelector(getContacts);
 console.log(contacts)
   const dispatch = useDispatch();
   
-
+return (
 
     <div>
       <ul>

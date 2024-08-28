@@ -18,3 +18,12 @@ const filtersSlice = createSlice({
 // Експортуємо генератори екшенів та редюсер
 export const { setStatusFilter } = filtersSlice.actions;
 export const filtersReducer = filtersSlice.reducer;
+
+// export const selectFilteredContacts = createSelector(
+//   [selectContacts, selectFilter],
+//   (contacts, filter) => {
+//     if (!filter) return contacts;
+//     return contacts.filter(contact =>
+//       contact.name.toLowerCase().includes(filter.toLowerCase())
+//     );
+//   }
