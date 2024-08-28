@@ -9,26 +9,20 @@ const filtersSlice = createSlice({
   initialState: filtersInitialState,
   reducers: {
     changeFilter(state, action) {
-<<<<<<< Updated upstream
-      state.filter = action.payload;
-=======
-      console.log(state.filters);
       state.name = action.payload;
-    
->>>>>>> Stashed changes
     },
   },
 });
 
 // Експортуємо генератори екшенів та редюсер
-<<<<<<< Updated upstream
-export const { changeFilter} = filtersSlice.actions;
+export const { changeFilter } = filtersSlice.actions;
 // редюсер фильтру
 export const filtersReducer = filtersSlice.reducer;
 // функция-селектор
-export const selectNameFilter  = (state) => state.filters.filter;
-
-
+export const selectNameFilter = (state) => {
+  console.log(state.filters.name);
+  return state.filters.name;
+};
 
 // const searchContact = contacts.filter((contact) =>
 // contact.name.toLowerCase().includes(filter.toLowerCase())
@@ -41,11 +35,3 @@ export const selectNameFilter  = (state) => state.filters.filter;
 //       contact.name.toLowerCase().includes(filter.toLowerCase())
 //     );
 //   }
-=======
-export const { changeFilter } = filtersSlice.actions;
-export const filtersReducer = filtersSlice.reducer;
-
-// функция-селектор
-
-export const selectNameFilter = (state) => state.filters.name;
->>>>>>> Stashed changes
